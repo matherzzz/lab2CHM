@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/go-echarts/go-echarts/v2/charts"
 	"github.com/go-echarts/go-echarts/v2/opts"
 	"github.com/go-echarts/go-echarts/v2/types"
@@ -76,11 +77,11 @@ func main() {
 		u[i][0] = 10.0 * t
 		u[i][1] = 20.0 * t
 	}
-	for true {
+	for {
 		x = solveStraight(u)
 		nrm := math.Sqrt(math.Pow(x[step-1][0]-y1, 2) + math.Pow(x[step-1][1]-y2, 2))
 		if nrm < 0.001 {
-			//fmt.Println(x[step-1][0], x[step-1][1])
+			fmt.Println(x[step-1][0], x[step-1][1])
 			createLineChart(u, "U.html")
 			createLineChart(x, "X.html")
 			break
